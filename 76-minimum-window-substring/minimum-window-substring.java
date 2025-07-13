@@ -8,6 +8,7 @@ class Solution {
 
         int missing = t.length();          // total chars we still need
         int left = 0, bestStart = 0, bestLen = Integer.MAX_VALUE;
+        StringBuilder sb = new StringBuilder();
 
         for (int right = 0; right < s.length(); right++) {
             char rc = s.charAt(right);
@@ -23,6 +24,8 @@ class Solution {
                 if (windowLen < bestLen) {
                     bestLen = windowLen;
                     bestStart = left;
+                    sb.delete(0, sb.length());
+                    sb.append(s.substring(left, right + 1));
                 }
 
                 // Remove left char from window
@@ -33,7 +36,8 @@ class Solution {
             }
         }
 
-        return bestLen == Integer.MAX_VALUE ? "" 
-                                            : s.substring(bestStart, bestStart + bestLen);
+        // return bestLen == Integer.MAX_VALUE ? "" 
+        //                                     : s.substring(bestStart, bestStart + bestLen);
+        return sb.toString();
     }
 }
