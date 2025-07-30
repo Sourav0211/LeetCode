@@ -19,7 +19,13 @@ class Solution {
             {
                 freq[ch - 'a']++;
             }
-            String temp = Arrays.toString(freq);
+            StringBuilder sb = new StringBuilder(26 * 3);
+
+            for(int i : freq)
+            {
+                sb.append('#').append(i);
+            }
+            String temp = sb.toString();
             if(!map.containsKey(temp)){
                 map.put(temp,new ArrayList<>());
                 
