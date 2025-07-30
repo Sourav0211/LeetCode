@@ -14,9 +14,12 @@ class Solution {
 
         for(String str : strs)
         {
-            // int[] freq = new int[26];
-            // for(char ch : str.toCharArray())
-            String temp = sorted(str);
+            int[] freq = new int[26];
+            for(char ch : str.toCharArray())
+            {
+                freq[ch - 'a']++;
+            }
+            String temp = Arrays.toString(freq);
             if(!map.containsKey(temp)){
                 map.put(temp,new ArrayList<>());
                 
